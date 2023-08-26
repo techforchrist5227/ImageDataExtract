@@ -1,7 +1,7 @@
 ﻿using MetadataExtractor.Formats.Exif;
 using MetadataExtractor;
 using static ImageDataExtract.ImageData;
-using static ImageDataExtract.ImageMetaDataServ;
+
 
 
 namespace ImageDataExtract
