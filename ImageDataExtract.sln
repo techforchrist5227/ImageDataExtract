@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33627.172
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageDataExtract", "ImageDataExtract\ImageDataExtract.csproj", "{DA3CA193-93C1-43EE-896B-C04917895E95}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA3CA193-93C1-43EE-896B-C04917895E95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA3CA193-93C1-43EE-896B-C04917895E95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA3CA193-93C1-43EE-896B-C04917895E95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA3CA193-93C1-43EE-896B-C04917895E95}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {16DB5AC1-AC7E-4DD7-B640-657889EEC586}
+	EndGlobalSection
+EndGlobal
