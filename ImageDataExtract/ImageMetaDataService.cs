@@ -4,6 +4,7 @@ using static ImageDataExtract.ImageData;
 
 
 
+
 namespace ImageDataExtract
 {
     public class ImageMetaDataService
@@ -11,13 +12,14 @@ namespace ImageDataExtract
     {
         public ImageData ExtractMetadataFromImage(Stream imageStream)
         {
-            var imageMetadata = new ImageMetaData();
+            
             var metadata = ImageMetadataReader.ReadMetadata(imageStream);
 
             var gpsDirectory = metadata.OfType<GpsDirectory>().FirstOrDefault();
             var dateDirectory = metadata.OfType<ExifSubIfdDirectory>().FirstOrDefault();
+            var imageMetadata = new ImageMetaData();
 
-            
+
 
             if (gpsDirectory != null)
             {
