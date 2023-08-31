@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using ImageDataExtract.Data;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using RedMango_API.Models;
+using System.Net;
 
 namespace ImageDataExtract.Controllers
 {
@@ -8,16 +11,31 @@ namespace ImageDataExtract.Controllers
     //this is the image meta data controller IMD is just short for image meta data
     public class IMDController : ControllerBase
     {
-        private readonly ImageMetaDataService _metadataService;
+        private ILogger<IMDController> _logger;
 
-        public IMDController(ImageMetaDataService metadataService)
+        private readonly ApplicationDBContext _db;
+
+        private ApiResponse _apiResponse;
+        private ImageMetaDataService _metadataService;
+
+        public IMDController(ApplicationDBContext db, ILogger<IMDController> logger, ImageMetaDataService metadataService)
         {
+            _db = db;
+            _logger = logger;
             _metadataService = metadataService;
+
         }
 
-        [HttpPost("upload")]
+
+       
+
+        [HttpPost("/upload")]
         public async Task<IActionResult> UploadImage(IFormFile file)
         {
+            ApiResponse response = new ApiResponse();
+
+
+
             if (file == null || file.Length == 0)
             {
                 return BadRequest("No file uploaded.");
@@ -30,8 +48,22 @@ namespace ImageDataExtract.Controllers
 
                 var metadata = _metadataService.ExtractMetadataFromImage(memoryStream);
                 return Ok(metadata);
+
             }
         }
 
+
+        [HttpGet]
+
+        public async Task<IActionResult> GetImageData()
+        {
+            ApiResponse response = new ApiResponse();
+
+            response.Result = _db;
+
+            return Ok(_db.imageDatas);
+        }
+
     }
+
 }
