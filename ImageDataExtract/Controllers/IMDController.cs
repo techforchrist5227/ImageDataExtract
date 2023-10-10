@@ -16,12 +16,11 @@ namespace ImageDataExtract.Controllers
         private readonly ApplicationDBContext _db;
 
         private ApiResponse _apiResponse;
-        private ImageMetaDataService _metadataService;
+        private IImageDataService _metadataService;
 
-        public IMDController(ApplicationDBContext db, ILogger<IMDController> logger, ImageMetaDataService metadataService)
+        public IMDController(ApplicationDBContext db, IImageDataService metadataService)
         {
             _db = db;
-            _logger = logger;
             _metadataService = metadataService;
 
         }

@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using ImageDataExtract.Data;
 using Microsoft.AspNetCore.Identity;
+using ImageDataExtract;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,13 +11,15 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddHttpClient();
 
 builder.Services.AddAuthentication();
-//DB context for database reference and usage
+//DB context for database reference and usage.  
 builder.Services.AddDbContext<ApplicationDBContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("IMD_DB"));
 }
 );
 //User authentication service via entity framework core
+builder.Services.AddTransient<IImageDataService, ImageMetaDataService_2>();
+
 builder.Services.AddIdentity<IdentityUser,IdentityRole>().AddEntityFrameworkStores<ApplicationDBContext>();
 
 builder.Services.AddControllers();

@@ -3,9 +3,27 @@ using MetadataExtractor;
 using static ImageDataExtract.Models.ImageData;
 using ImageDataExtract.Models;
 
+
+
 namespace ImageDataExtract
 {
-    public class ImageMetaDataService
+    //IImageDataService interface 
+    public interface IImageDataService
+    {
+        ImageData ExtractMetadataFromImage(Stream imageStream);
+    }
+
+    public class ImageMetaDataService_2 : IImageDataService
+    {
+        //Mock data class , for interface learning purposes
+        public ImageData ExtractMetadataFromImage(Stream imageStream)
+        {
+            return new ImageData { GpsLatitude = 5, GpsLongitude = 10 };
+        }
+    }
+
+
+    public class ImageMetaDataService: IImageDataService
 
     {
        
@@ -21,7 +39,7 @@ namespace ImageDataExtract
 
             
 
-            if (gpsDirectory == null)
+            if (gpsDirectory != null)
             {
                 imageMetadata.GpsLatitude = gpsDirectory.GetGeoLocation().Latitude;
                 imageMetadata.GpsLongitude = gpsDirectory.GetGeoLocation().Longitude;
