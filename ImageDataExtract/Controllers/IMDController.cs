@@ -11,7 +11,7 @@ namespace ImageDataExtract.Controllers
     //this is the image meta data controller IMD is just short for image meta data
     public class IMDController : ControllerBase
     {
-        private ILogger<IMDController> _logger;
+        
 
         private readonly ApplicationDBContext _db;
 
@@ -52,7 +52,7 @@ namespace ImageDataExtract.Controllers
         }
 
 
-        [HttpGet]
+        [HttpGet("/getdata")]
 
         public async Task<IActionResult> GetImageData()
         {
